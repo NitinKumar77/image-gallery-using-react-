@@ -18,7 +18,7 @@ function* fetchImageList() {
   );
   try {
     const data = yield response.json();
-    console.log(data);
+
     yield put(setImageList(data));
   } catch (error) {
     if (!response.ok) {

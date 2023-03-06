@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const initialState = {
+  imageList: [],
+};
 const Imageslice = createSlice({
   name: "image",
-  initialstate: {
-    imageList: [],
-  },
+  initialState,
   reducers: {
     setImageList(state, action) {
       state.imageList = action.payload;
