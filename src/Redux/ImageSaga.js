@@ -13,7 +13,6 @@ function* fetchImageList(action) {
 
   const response = yield call(() =>
     fetch(
-      //   "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=636e1481b4f3c446d26b8eb6ebfe7127&tags=mountains&per_page=40&format=json&nojsoncallback=1"
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=${per_page}&format=json&nojsoncallback=1`
     )
   );
