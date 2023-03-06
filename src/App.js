@@ -7,7 +7,10 @@ import ShowImages from "./Components/ShowImages";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "Fetch_data" });
+    dispatch({
+      type: "Fetch_data",
+      payload: { category: "mountains", pages: "40" },
+    });
   }, [dispatch]);
 
   return (
