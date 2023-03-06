@@ -19,7 +19,7 @@ function* fetchImageList() {
   try {
     const data = yield response.json();
 
-    yield put(setImageList(data));
+    yield put(setImageList(data.photos.photo));
   } catch (error) {
     if (!response.ok) {
       throw Error("FETCHING WENT WRONG");
