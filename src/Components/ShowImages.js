@@ -9,10 +9,10 @@ function ShowImages() {
   const query = useSelector((state) => state.query);
   const dispatch = useDispatch();
   const imagesRow = useSelector((state) => state.imagesPerPage);
-  const filterlist = query.trim().length
-    ? imageList.filter((e) => e.title.toLowerCase().includes(query))
-    : imageList;
-
+  const filterlist =
+    query.trim().length &&
+    imageList.filter((e) => e.title.toLowerCase().includes(query));
+  const showImages = query.trim().length ? filterlist : imageList;
   React.useEffect(() => {
     dispatch({
       type: "Fetch_data",
@@ -23,7 +23,7 @@ function ShowImages() {
     <>
       <Category />
       <ImageList rows={Number(imagesRow)} cols={5} rowHeight={200}>
-        {filterlist.map((item) => (
+        {showImages.map((item) => (
           <ImageListItem key={item.id}>
             <img
               src={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}

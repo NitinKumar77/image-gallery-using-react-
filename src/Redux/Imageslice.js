@@ -10,10 +10,8 @@ const Imageslice = createSlice({
   reducers: {
     setImageList(state, action) {
       state.imageList = action.payload;
-      state.query = "";
     },
     setQuery(state, action) {
-      console.log(action.payload);
       state.query = action.payload;
     },
     setImagesPerPage(state, action) {

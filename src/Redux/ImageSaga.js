@@ -23,8 +23,6 @@ function* fetchImageList(action) {
     const data = yield response.json();
 
     yield put(setImageList(data.photos.photo));
-  } catch (error) {
-    console.log(error.message);
-  }
+  } catch (error) {}
 }
 export default ImageSaga;

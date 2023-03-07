@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 
 import InputBase from "@mui/material/InputBase";
 
-import ImageSearchSharpIcon from "@mui/icons-material/ImageSearchSharp";
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
 import { IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuery } from "../Redux/Imageslice";
@@ -29,13 +29,12 @@ export default function SearchFilter() {
   const [searchText, setSearchText] = React.useState("");
   const query = useSelector((state) => state.query);
   const dispatch = useDispatch();
-  const onClickHandler = () => {
-    dispatch(setQuery(searchText));
-  };
+
   const onChangeHandler = (e) => {
     setSearchText(e.target.value);
+    dispatch(setQuery(searchText));
+    console.log(query);
   };
-  console.log(query);
 
   return (
     <Box
@@ -53,8 +52,8 @@ export default function SearchFilter() {
           onChange={onChangeHandler}
         />
       </Search>
-      <IconButton onClick={onClickHandler}>
-        <ImageSearchSharpIcon />
+      <IconButton>
+        <ImageSearchIcon />
       </IconButton>
     </Box>
   );
