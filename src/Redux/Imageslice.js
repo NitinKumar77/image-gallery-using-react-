@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   imageList: [],
+  query: "",
 };
 const Imageslice = createSlice({
   name: "image",
@@ -9,7 +10,11 @@ const Imageslice = createSlice({
     setImageList(state, action) {
       state.imageList = action.payload;
     },
+    setQuery(state, action) {
+      console.log(action.payload);
+      state.query = action.payload;
+    },
   },
 });
-export const { callSagaFunction, setImageList } = Imageslice.actions;
+export const { setQuery, setImageList } = Imageslice.actions;
 export default Imageslice;

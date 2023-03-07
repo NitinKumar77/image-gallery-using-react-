@@ -1,6 +1,6 @@
 import SearchFilter from "./Components/SearchFilter";
 import Header from "./Components/Header";
-
+import Pagination from "./Components/Pagination";
 import ShowImages from "./Components/ShowImages";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Header />
       <SearchFilter />
       <ShowImages />
+      <Pagination />
     </>
   );
 }

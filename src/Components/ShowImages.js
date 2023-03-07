@@ -7,6 +7,12 @@ function ShowImages() {
   const imageList = useSelector((state) => state.imageList);
   const dispatch = useDispatch();
 
+  React.useEffect(() => {
+    dispatch({
+      type: "Fetch_data",
+      payload: { category: "all", pages: "40" },
+    });
+  }, [dispatch]);
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -57,6 +63,18 @@ function ShowImages() {
           sx={{ margin: "0 10px", bgcolor: "darkBlue" }}
         >
           Foods
+        </Button>
+        <Button
+          onClick={() =>
+            dispatch({
+              type: "Fetch_data",
+              payload: { category: "cat", pages: "40" },
+            })
+          }
+          variant='contained'
+          sx={{ margin: "0 10px", bgcolor: "darkBlue" }}
+        >
+          Cat
         </Button>
       </Box>
 
