@@ -6,11 +6,12 @@ import { Box, Button } from "@mui/material";
 function ShowImages() {
   const imageList = useSelector((state) => state.imageList);
   const dispatch = useDispatch();
+  const imagesRow = useSelector((state) => state.imagesPerPage);
 
   React.useEffect(() => {
     dispatch({
       type: "Fetch_data",
-      payload: { category: "all", pages: "40" },
+      payload: { category: "animals", pages: "100" },
     });
   }, [dispatch]);
   return (
@@ -78,12 +79,14 @@ function ShowImages() {
         </Button>
       </Box>
 
-      <ImageList cols={5} rowHeight={164}>
+      <ImageList rows={Number(imagesRow)} cols={5} rowHeight={200}>
         {imageList.map((item) => (
           <ImageListItem key={item.id}>
             <img
               src={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
               alt={item.title}
+              height='122px'
+              width='122px'
               loading='lazy'
             />
           </ImageListItem>
