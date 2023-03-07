@@ -32,6 +32,9 @@ export default function SearchFilter() {
   const onClickHandler = () => {
     dispatch(setQuery(searchText));
   };
+  const onChangeHandler = (e) => {
+    setSearchText(e.target.value);
+  };
   console.log(query);
 
   return (
@@ -47,7 +50,7 @@ export default function SearchFilter() {
         <InputBase
           placeholder='Search…'
           inputProps={{ "aria-label": "search" }}
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={onChangeHandler}
         />
       </Search>
       <IconButton onClick={onClickHandler}>

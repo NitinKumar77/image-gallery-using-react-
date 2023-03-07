@@ -17,13 +17,14 @@ function* fetchImageList(action) {
     )
   );
   try {
+    if (!response.ok) {
+      throw Error("FETCHING WENT WRONG");
+    }
     const data = yield response.json();
 
     yield put(setImageList(data.photos.photo));
   } catch (error) {
-    if (!response.ok) {
-      throw Error("FETCHING WENT WRONG");
-    }
+    console.log(error.message);
   }
 }
 export default ImageSaga;

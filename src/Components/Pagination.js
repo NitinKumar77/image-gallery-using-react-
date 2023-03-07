@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setImagesPerPage } from "../Redux/Imageslice";
 
 export default function TablePaginationGallery() {
+  const dipatch = useDispatch();
   const [page, setPage] = React.useState(2);
   const imageRows = useSelector((state) => state.imagesPerPage);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -11,6 +12,7 @@ export default function TablePaginationGallery() {
   const dispatch = useDispatch();
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+    dispatch();
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -22,7 +24,7 @@ export default function TablePaginationGallery() {
   return (
     <TablePagination
       component='div'
-      count={100}
+      count={2000}
       page={page}
       onPageChange={handleChangePage}
       rowsPerPage={rowsPerPage}
