@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   imageList: [],
   query: "",
   imagesPerPage: "10",
-  loading: false,
+  loading: true,
 };
 const Imageslice = createSlice({
   name: "image",
@@ -11,7 +11,6 @@ const Imageslice = createSlice({
   reducers: {
     setImageList(state, action) {
       state.imageList = action.payload;
-      state.loading = false;
     },
     setQuery(state, action) {
       state.query = action.payload;

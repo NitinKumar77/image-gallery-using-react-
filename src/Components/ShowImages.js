@@ -31,7 +31,10 @@ function ShowImages() {
         rowHeight={200}
         margin={"10px 5px"}
       >
-        {showImages.map((item, index) =>
+        {(isLoading
+          ? Array.from(new Array(Number(imagesRow)))
+          : showImages
+        ).map((item, index) =>
           !isLoading ? (
             <ImageListItem key={item.id}>
               <img
@@ -46,7 +49,7 @@ function ShowImages() {
             <Skeleton
               key={index}
               sx={{ bgcolor: "grey" }}
-              variant='rectangular'
+              variant='rounded'
               width={210}
               height={130}
               animation='wave'
