@@ -3,6 +3,7 @@ const initialState = {
   imageList: [],
   query: "",
   imagesPerPage: "10",
+  loading: false,
 };
 const Imageslice = createSlice({
   name: "image",
@@ -10,6 +11,7 @@ const Imageslice = createSlice({
   reducers: {
     setImageList(state, action) {
       state.imageList = action.payload;
+      state.loading = false;
     },
     setQuery(state, action) {
       state.query = action.payload;
@@ -17,7 +19,12 @@ const Imageslice = createSlice({
     setImagesPerPage(state, action) {
       state.imagesPerPage = action.payload;
     },
+    setIsloading(state, action) {
+      state.loading = action.payload;
+      console.log(current(state));
+    },
   },
 });
-export const { setImagesPerPage, setQuery, setImageList } = Imageslice.actions;
+export const { setIsloading, setImagesPerPage, setQuery, setImageList } =
+  Imageslice.actions;
 export default Imageslice;
