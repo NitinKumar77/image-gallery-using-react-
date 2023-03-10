@@ -14,7 +14,7 @@ const Header = () => (
   <Box sx={{ bgcolor: "white", borderRadius: "10px" }}>
     <MyStyle>
       <Typography variant='h1' fontFamily={"cursive"} fontSize='50px'>
-        IMAGE GALLERY
+        PHOTO GALLERY
       </Typography>
     </MyStyle>
   </Box>

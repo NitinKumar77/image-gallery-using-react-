@@ -11,6 +11,7 @@ export default function TablePaginationGallery() {
   const dispatch = useDispatch();
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+    console.log(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
