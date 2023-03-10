@@ -11,6 +11,7 @@ function ShowImages() {
   const isLoading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   const imagesRow = useSelector((state) => state.imagesPerPage);
+  const pageNo = useSelector((state) => state.page);
   const filterlist =
     query.trim().length &&
     imageList.filter((e) => e.title.toLowerCase().includes(query));
@@ -18,9 +19,9 @@ function ShowImages() {
   React.useEffect(() => {
     dispatch({
       type: "Fetch_data",
-      payload: { category: "animals", pages: imagesRow },
+      payload: { category: "animals", pages: imagesRow, pageNo: pageNo },
     });
-  }, [dispatch, imagesRow]);
+  }, [dispatch, imagesRow, pageNo]);
   return (
     <>
       <Category />

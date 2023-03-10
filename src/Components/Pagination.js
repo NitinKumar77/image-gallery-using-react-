@@ -1,7 +1,7 @@
 import * as React from "react";
 import TablePagination from "@mui/material/TablePagination";
 import { useDispatch, useSelector } from "react-redux";
-import { setImagesPerPage } from "../Redux/Imageslice";
+import { setImagesPerPage, setPageNumber } from "../Redux/Imageslice";
 
 export default function TablePaginationGallery() {
   const [page, setPage] = React.useState(2);
@@ -11,7 +11,7 @@ export default function TablePaginationGallery() {
   const dispatch = useDispatch();
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
-    console.log(newPage);
+    dispatch(setPageNumber());
   };
 
   const handleChangeRowsPerPage = (event) => {

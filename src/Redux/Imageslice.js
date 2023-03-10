@@ -1,9 +1,10 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   imageList: [],
   query: "",
   imagesPerPage: "10",
   loading: true,
+  page: 1,
 };
 const Imageslice = createSlice({
   name: "image",
@@ -20,10 +21,18 @@ const Imageslice = createSlice({
     },
     setIsloading(state, action) {
       state.loading = action.payload;
-      console.log(current(state));
+    },
+    setPageNumber(state) {
+      console.log(state.page);
+      state.page++;
     },
   },
 });
-export const { setIsloading, setImagesPerPage, setQuery, setImageList } =
-  Imageslice.actions;
+export const {
+  setPageNumber,
+  setIsloading,
+  setImagesPerPage,
+  setQuery,
+  setImageList,
+} = Imageslice.actions;
 export default Imageslice;

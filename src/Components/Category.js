@@ -5,13 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 function Category() {
   const imagesRow = useSelector((state) => state.imagesPerPage);
   const dispatch = useDispatch();
+  const pageNo = useSelector((state) => state.page);
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Button
         onClick={() =>
           dispatch({
             type: "Fetch_data",
-            payload: { category: "mountains", pages: imagesRow },
+            payload: {
+              category: "mountains",
+              pages: imagesRow,
+              pageNo: pageNo,
+            },
           })
         }
         variant='contained'
@@ -23,7 +28,7 @@ function Category() {
         onClick={() =>
           dispatch({
             type: "Fetch_data",
-            payload: { category: "beaches", pages: imagesRow },
+            payload: { category: "beaches", pages: imagesRow, pageNo: pageNo },
           })
         }
         variant='contained'
@@ -35,7 +40,7 @@ function Category() {
         onClick={() =>
           dispatch({
             type: "Fetch_data",
-            payload: { category: "birds", pages: imagesRow },
+            payload: { category: "birds", pages: imagesRow, pageNo: pageNo },
           })
         }
         variant='contained'
@@ -47,7 +52,7 @@ function Category() {
         onClick={() =>
           dispatch({
             type: "Fetch_data",
-            payload: { category: "foods", pages: imagesRow },
+            payload: { category: "foods", pages: imagesRow, pageNo: pageNo },
           })
         }
         variant='contained'
@@ -59,7 +64,7 @@ function Category() {
         onClick={() =>
           dispatch({
             type: "Fetch_data",
-            payload: { category: "cat", pages: imagesRow },
+            payload: { category: "cat", pages: imagesRow, pageNo: pageNo },
           })
         }
         variant='contained'

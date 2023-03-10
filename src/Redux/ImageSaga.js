@@ -1,4 +1,4 @@
-import { call, put, takeEvery, select } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 
 import { setImageList, setIsloading } from "./Imageslice";
 
@@ -11,7 +11,8 @@ function* ImageSaga() {
 function* fetchImageList(action) {
   const query = action.payload.category;
   const per_page = action.payload.pages;
-  const page = yield select();
+  const page = action.payload.pageNo;
+
   yield put(setIsloading(true));
   const response = yield call(() =>
     fetch(
